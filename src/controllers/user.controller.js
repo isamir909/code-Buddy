@@ -46,8 +46,8 @@ module.exports.getUsersWithPostCount = async (req, res) => {
     if (page && limit) {
       let totalPages = Math.ceil(getUser.length / limit);
       startIndex = page * limit - limit;
-      endIndex = page * limit - 1;
-      users = getUser.slice(startIndex, endIndex + 1);
+      endIndex = page * limit;
+      users = getUser.slice(startIndex, endIndex );
       pagination.totalPages = totalPages;
       pagination.hasPrevPage = page > 1;
       pagination.hasNextPage = page == totalPages ? false : true;
